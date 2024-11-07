@@ -1,0 +1,24 @@
+{
+    "data": {
+        "uuid": false,
+        "id": "3AE0A1991B7BC53EB8CB",
+        "timestamp": 1727142805,
+        "recipient": {
+            "id": "556792086733",
+            "type": "chat",
+            "name": "Cristiano Maia"
+        },
+        "contact": {
+            "name": "Cristiano Maia",
+            "id": "556792086733",
+            "me": false,
+            "picture_url": null
+        },
+        "body_type": "text",
+        "caption": "",
+        "quote": false,
+        "body": "teste"
+    },
+    "event": "response.events.chat.message",
+    "instance_uuid": "bdb111dd-70f3-4466-83ef-c5698e36b79d"
+}

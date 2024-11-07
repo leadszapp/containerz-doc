@@ -1,0 +1,24 @@
+{
+    "data": {
+        "uuid": false,
+        "id": "3ADDE992113E3CEA9C72",
+        "timestamp": 1727143268,
+        "recipient": {
+            "id": "556792086733",
+            "type": "chat",
+            "name": "Cristiano Maia"
+        },
+        "contact": {
+            "name": "Cristiano Maia",
+            "id": "556792086733",
+            "me": false,
+            "picture_url": null
+        },
+        "body_type": "video",
+        "caption": "",
+        "body": "https://s3.us-west-1.wasabisys.com/containerz/a27cabc9-d153-4ccd-b84b-fb967c74b66e/bdb111dd-70f3-4466-83ef-c5698e36b79d/3ADDE992113E3CEA9C72.mp4",
+        "quote": false
+    },
+    "event": "response.events.chat.message",
+    "instance_uuid": "bdb111dd-70f3-4466-83ef-c5698e36b79d"
+}

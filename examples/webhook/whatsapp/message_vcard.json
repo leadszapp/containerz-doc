@@ -1,0 +1,24 @@
+{
+    "data": {
+        "uuid": false,
+        "id": "3A79FBA25693AC6537CF",
+        "timestamp": 1727145055,
+        "recipient": {
+            "id": "556792086733",
+            "type": "chat",
+            "name": "Cristiano Maia"
+        },
+        "contact": {
+            "name": "Cristiano Maia",
+            "id": "556792086733",
+            "me": false,
+            "picture_url": null
+        },
+        "body_type": "vcard",
+        "caption": "",
+        "quote": false,
+        "body": "BEGIN:VCARD\nVERSION:3.0\nN:;Cristiano Maia;;;\nFN:Cristiano Maia\nTEL;type=CELL;type=VOICE;waid=556792086733:+55 67 99208-6733\nEND:VCARD"
+    },
+    "event": "response.events.chat.message",
+    "instance_uuid": "bdb111dd-70f3-4466-83ef-c5698e36b79d"
+}
