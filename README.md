@@ -96,6 +96,126 @@ POST /api/instance
 }
 ```
 
+## Eventos do Webhook
+
+Os eventos disponíveis para monitoramento via webhook estão organizados nas seguintes categorias:
+
+### 1. Eventos de Status e Dispositivo
+```javascript
+[
+    // Status da instância
+    "response.status",              // Status geral da instância
+    "response.status.running",      // Instância em execução
+    "response.qrcode",             // Novo QR code gerado
+    "response.info_device",        // Informações do dispositivo
+    "response.screen_capture",     // Captura de tela do dispositivo
+]
+```
+
+### 2. Eventos de Grupos
+```javascript
+[
+    // Listagem e Metadados
+    "response.list_all_groups",    // Lista todos os grupos
+    "response.list_groups",        // Lista grupos específicos
+    "response.group_metadata",     // Metadados do grupo
+    "request.group_metadata",      // Requisição de metadados
+    "response.create_group",       // Criação de novo grupo
+
+    // Gerenciamento
+    "response.invite_group",       // Convite para grupo
+    "response.leave_group",        // Saída do grupo
+
+    // Atualizações
+    "response.group_icon_updated",          // Atualização do ícone
+    "response.group_description_updated",   // Atualização da descrição
+    "response.group_subject_updated",       // Atualização do título
+    "response.group_restrict_updated",      // Atualização de restrições
+    "response.group_announcement_updated"   // Atualização de anúncios
+]
+```
+
+### 3. Eventos de Mensagens
+```javascript
+[
+    // Mensagens Individuais e Grupos
+    "response.events.chat.message",     // Mensagens de chat individual
+    "response.events.group.message",    // Mensagens de grupo
+    
+    // Mensagens Enviadas
+    "response.chat_sended_message",     // Mensagem enviada em chat
+    "response.group_sended_message",    // Mensagem enviada em grupo
+    
+    // Mensagens Recebidas
+    "response.chat_received_message",   // Mensagem recebida em chat
+    "response.group_received_message"   // Mensagem recebida em grupo
+]
+```
+
+### 4. Eventos de Confirmação (ACK)
+```javascript
+[
+    // ACK Geral
+    "response.ack_message_send",        // Mensagem enviada
+    "response.ack_message_confirm",     // Mensagem entregue
+    "response.ack_message_read",        // Mensagem lida
+    "response.ack_message_played",      // Mensagem de áudio reproduzida
+
+    // ACK de Grupo
+    "response.group_ack_message_send",      // Mensagem enviada no grupo
+    "response.group_ack_message_confirm",   // Mensagem entregue no grupo
+    "response.group_ack_message_read",      // Mensagem lida no grupo
+    "response.group_ack_message_played",    // Áudio reproduzido no grupo
+
+    // ACK de Chat Individual
+    "response.chat_ack_message_send",       // Mensagem enviada no chat
+    "response.chat_ack_message_confirm",    // Mensagem entregue no chat
+    "response.chat_ack_message_read",       // Mensagem lida no chat
+    "response.chat_ack_message_played"      // Áudio reproduzido no chat
+]
+```
+
+### Exemplo de Configuração Completa de Webhook
+```http
+POST /api/instance
+{
+    "instance_uuid": "seu_instance_uuid",
+    "model": "webhook",
+    "method": "add",
+    "payload": {
+        "name": "Webhook Completo",
+        "url": "https://sua-url.com/webhook",
+        "events": [
+            // Adicione os eventos desejados da lista acima
+            "response.status",
+            "response.qrcode",
+            "response.events.chat.message",
+            "response.group_sended_message",
+            // ... outros eventos ...
+        ],
+        "attachment": true,
+        "ack": true
+    }
+}
+```
+
+### Dicas para Gerenciamento de Eventos
+
+1. **Priorização de Eventos**
+   - Comece com eventos essenciais (status, mensagens, ACKs básicos)
+   - Adicione eventos específicos conforme necessidade
+   - Evite monitorar eventos desnecessários para sua aplicação
+
+2. **Processamento de Eventos**
+   - Implemente filas para processamento assíncrono
+   - Mantenha logs de eventos recebidos
+   - Implemente retry para eventos críticos
+
+3. **Monitoramento**
+   - Monitore a latência dos eventos
+   - Verifique eventos perdidos
+   - Mantenha métricas de sucesso/falha
+
 ### 4. Iniciar a Instância
 
 Inicie a instância criada:
