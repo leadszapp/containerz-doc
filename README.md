@@ -310,22 +310,6 @@ POST /api/instance
 }
 ```
 
-## Eventos do Webhook
-
-Os principais eventos que você pode monitorar:
-
-```javascript
-[
-    "response.status",           // Status da instância
-    "response.qrcode",          // Novo QR code gerado
-    "response.status.running",   // Instância em execução
-    "response.events.chat.message",  // Mensagens recebidas
-    "response.group_sended_message", // Mensagens enviadas para grupos
-    "response.ack_message_send",     // Confirmação de envio
-    "response.ack_message_read"      // Confirmação de leitura
-]
-```
-
 ## Gestão de Instâncias
 
 ### Verificar Status
